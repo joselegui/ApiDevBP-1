@@ -1,4 +1,6 @@
-﻿namespace ApiDevBP.Models
+﻿using ApiDevBP.Entities;
+
+namespace ApiDevBP.Models
 {
     public class UserModel
     {

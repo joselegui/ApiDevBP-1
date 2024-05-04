@@ -1,11 +1,35 @@
+using ApiDevBP.DATA;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Microsoft.EntityFrameworkCore;
+using ApiDevBP.Repository.IRopository;
+using ApiDevBP.Repository;
+using ApiDevBP.ApiDevBpMapper;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
+    .WriteTo.File("logs/Logs-.txt",rollingInterval:RollingInterval.Day)
     .CreateBootstrapLogger();
+
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+//Agregamos los repositorios
+#region Repositorios
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+#endregion
+
+
+builder.Services.AddAutoMapper(typeof(ApiDevBpMapper));
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -4,5 +4,51 @@
         <name>ApiDevBP</name>
     </assembly>
     <members>
+        <member name="M:ApiDevBP.Controllers.UsersController.SaveUser(ApiDevBP.Models.DTO.UserDto)">
+            <summary>
+            Save user to DB
+            </summary>
+            <param name="users"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.GetUsers">
+            <summary>
+            Displays all DB users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.UpdateUser(ApiDevBP.Models.DTO.UserDto)">
+            <summary>
+            Update a specific user BD
+            </summary>
+            <param name="userDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.DeleteUser(System.Int32)">
+            <summary>
+            Delete a specific user BD
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.Search(System.String)">
+            <summary>
+            Search for users by first or last name
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApiDevBP.Migrations.InitialDb">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiDevBP.Migrations.InitialDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiDevBP.Migrations.InitialDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiDevBP.Migrations.InitialDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
