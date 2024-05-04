@@ -71,6 +71,7 @@ namespace ApiDevBP.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ResponseCache(Duration = 30)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status202Accepted)]

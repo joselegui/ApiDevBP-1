@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using ApiDevBP.Repository.IRopository;
 using ApiDevBP.Repository;
 using ApiDevBP.ApiDevBpMapper;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,14 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 builder.Services.AddAutoMapper(typeof(ApiDevBpMapper));
+
+
+builder.Services.AddControllers(opcion =>
+{
+    //Cache profile. un cahce global
+    opcion.CacheProfiles.Add("PorDefecto20Segundos", new CacheProfile() { Duration = 30 });
+});
+
 
 
 builder.Services.AddControllers();
